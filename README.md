@@ -250,4 +250,8 @@ If your package.json file has a dependency that looks like
 
 Review your code at least once before creating a pull or merge request
 
+## Props Types for Reusable Components.
+
+Add Proptypes for each resuable component to make component more understandable and manageable.
+
 
