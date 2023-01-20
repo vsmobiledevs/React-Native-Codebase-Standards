@@ -1,27 +1,26 @@
 # React Native Coding Standards
 
- There is no specific standards or practices provided by React Native. So I decided to create a document for the same. However, the guidelines on this topic are created by using the references from React Native documentation, Medium documents and my proficiency in coding.
+There is no specific standards or practices provided by React Native. So I decided to create a document for the same. However, the guidelines on this topic are created by using the references from React Native documentation, Medium documents and my proficiency in coding.
 
 ## 1. Naming Conventions
 
--  A folder and sub folder name should always start with small letters and the files belongs the folders is always in pascal case. The term “PascalCase” comes from software development, it may describe any compound word in which the first letter of each word is capitalized. Examples include the company “MasterCard” the video game “StarCraft” and of course, the website “TechTerms”.
+- A folder and sub folder name should always start with small letters and the files belongs the folders is always in pascal case. The term “PascalCase” comes from software development, it may describe any compound word in which the first letter of each word is capitalized. Examples include the company “MasterCard” the video game “StarCraft” and of course, the website “TechTerms”.
 - To name the components, we follow the pattern path based component naming, which include naming the component accordingly to its relative path to the folder components or to app. Basically, a component that is located at: components/common/Button.js would be named as Button.js. Component Name should follow pascal case.
 - When the file is in a folder with same name, we don’t need to repeat the name. That means, components/user/form/Form.js, would be named as UserForm and not as UserFormForm.
 - Include all the control in a single import belong to same module end with semicolon. There should be no space between two imports.
-> import {ScrollView, View, TouchableOpacity, KeyboardAvoidingView, ListView, AsyncStorage, > Alert } from ‘react-native’;
+  > import {ScrollView, View, TouchableOpacity, KeyboardAvoidingView, ListView, AsyncStorage, > Alert } from ‘react-native’;
 - The class name should be declared as the file name that will be easy during importing and to maintain the standard declaration.
 - The object and variable declaration should always in camel case statement. If we use semicolon then use in all places at the end of statement or do not use.
-> let textExample = “Hello World”;
-> OR
-> let textExample = “Hello World”
-
+  > let textExample = “Hello World”;
+  > OR
+  > let textExample = “Hello World”
 
 ## 2. Structuring Folder
+
 - All the components, globals, images, redux etc.. Should be written inside the app folder
 - All the components except global components should be written inside the components folder under an app folder. A style for every page is written in its corresponding folder. Below, we can see the example of about screen
 - All the global components, global styles, golbal data etc .. should be written in the globals folder under an app folder. Example of search bar is shown below. A search bar is written as a global component in the components folder under the globals folder, since it is used in many screens.
 - The localization file is directly written in the app folder.
-
 
 ## 3. Putting imports in an order
 
@@ -29,12 +28,12 @@ a. React import
 b. Library imports (Alphabetical order)
 c. Absolute imports from the project (Alphabetical order)
 d. Relative imports (Alphabetical order)
-e. Import * as
+e. Import \* as
 f. Import ‘./<some file>.<some extension>
 Each kind should be separated by an empty line. This makes your imports clean and easy to understand for all the components, 3rd-party libraries, and etc
 
-
 ## 4. Layout Conventions
+
 Always end a statement with a semicolon.
 We should create class component when we have to use state otherwise we should use functional component.
 Not allowing to set a state to be invoked on Render() of a React Component.
@@ -77,16 +76,18 @@ default: return state;
 }
 }
 
-## 5.  Commenting Conventions
+## 5. Commenting Conventions
+
 Place the comment on a separate line, not at the end of a line of code.
 Begin comment text with an uppercase letter.
 End comment text with a period.
 Insert one space between the comment delimiter (//) and the comment text.
 Attach comments to code only where necessary. This is not only in keeping with React best practices, it also serves two purposes at the same time:
+
 1. It’ll keep code visually clutter free.
 
 2. You’ll avoid a potential conflict between comment and code, if you happen to alter the code at some later point in time.
-3. 
+3.
 
 ## 6. Language Guidelines
 
@@ -96,7 +97,7 @@ Data types:A variable in ReactNative can contain any data. A variable can at one
 let message = “hello”;
 message = 123456;
 
-A Number:The number type represents both integer and floating point numbers.There are many operations for numbers, e.g. multiplication * , division / , addition +, subtraction — , and so on.
+A Number:The number type represents both integer and floating point numbers.There are many operations for numbers, e.g. multiplication \* , division / , addition +, subtraction — , and so on.
 
 let n = 123;
 n = 123.123;
@@ -161,6 +162,7 @@ alert( fruits[1] ); // Orange
 alert( fruits[2] ); // Plum
 
 ## Check internet connectivity
+
 When you are building your React Native app that needs to pull assets or data from a server, there is a possibility that some users may use the application in an offline environment i.e., without an internet connection. There is a chance that the app might crash. So, for a better user experience, we can handle this by checking for an internet connection and notifying the user if not.
 
 ## 7. Don’t Repeat Yourself
@@ -188,9 +190,9 @@ The try…catch statement consists of a try block, which contains one or more st
 If your app consists of a block of code that may throw exceptions, you can handle that in a try-catch block like shown below.
 
 try {
-    throw new Error("Error");
+throw new Error("Error");
 } catch (error) {
-    // handle Error
+// handle Error
 }
 
 ## 10. Perform the API Calls in componentDidMount()
@@ -237,7 +239,7 @@ Some actions require pushing a new screen to the application stack, while others
 
 Follow strict linting rules. This in turn helps you write clean, consistent code.
 
-## 19.  On editing external libraries (Patches)
+## 19. On editing external libraries (Patches)
 
 Sometimes you will want to change something in an external library. Do not edit it directly in the node_modules/ folder. That folder is supposed to be ignored by version control anyway, so if you change the code directly, your teammates will not see your changes. In addition, an npm update action will overwrite your modifications. The solution is to either fork the original repository and link your project to your own repository where you made the changes (and even make a PR to the original author if you want to help!), or if the library is very small (one file), you can copy/paste it as a component in your own project and then edit it locally.
 
@@ -246,12 +248,10 @@ Sometimes you will want to change something in an external library. Do not edit 
 If your package.json file has a dependency that looks like
 "some-cool-library": "^0.4.2", you might want to remove the ^ character in order to lock the dependency on that specific version. This will ensure that you don’t import breaking changes from the new versions of the library into your project.
 
-## 21.  Review your code before creating a pull/merge request.
+## 21. Review your code before creating a pull/merge request.
 
 Review your code at least once before creating a pull or merge request
 
 ## 22. Props Types for Reusable Components.
 
 Add Proptypes for each resuable component to make component more understandable and manageable.
-
-
