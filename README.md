@@ -2,7 +2,7 @@
 
  There is no specific standards or practices provided by React Native. So I decided to create a document for the same. However, the guidelines on this topic are created by using the references from React Native documentation, Medium documents and my proficiency in coding.
 
-## Naming Conventions
+## 1. Naming Conventions
 
 -  A folder and sub folder name should always start with small letters and the files belongs the folders is always in pascal case. The term “PascalCase” comes from software development, it may describe any compound word in which the first letter of each word is capitalized. Examples include the company “MasterCard” the video game “StarCraft” and of course, the website “TechTerms”.
 - To name the components, we follow the pattern path based component naming, which include naming the component accordingly to its relative path to the folder components or to app. Basically, a component that is located at: components/common/Button.js would be named as Button.js. Component Name should follow pascal case.
@@ -16,14 +16,14 @@
 > let textExample = “Hello World”
 
 
-##  Structuring Folder
+## 2. Structuring Folder
 - All the components, globals, images, redux etc.. Should be written inside the app folder
 - All the components except global components should be written inside the components folder under an app folder. A style for every page is written in its corresponding folder. Below, we can see the example of about screen
 - All the global components, global styles, golbal data etc .. should be written in the globals folder under an app folder. Example of search bar is shown below. A search bar is written as a global component in the components folder under the globals folder, since it is used in many screens.
 - The localization file is directly written in the app folder.
 
 
-## Putting imports in an order
+## 3. Putting imports in an order
 
 a. React import
 b. Library imports (Alphabetical order)
@@ -34,7 +34,7 @@ f. Import ‘./<some file>.<some extension>
 Each kind should be separated by an empty line. This makes your imports clean and easy to understand for all the components, 3rd-party libraries, and etc
 
 
-## Layout Conventions
+## 4. Layout Conventions
 Always end a statement with a semicolon.
 We should create class component when we have to use state otherwise we should use functional component.
 Not allowing to set a state to be invoked on Render() of a React Component.
@@ -77,7 +77,7 @@ default: return state;
 }
 }
 
-## Commenting Conventions
+## 5.  Commenting Conventions
 Place the comment on a separate line, not at the end of a line of code.
 Begin comment text with an uppercase letter.
 End comment text with a period.
@@ -88,7 +88,7 @@ Attach comments to code only where necessary. This is not only in keeping with R
 2. You’ll avoid a potential conflict between comment and code, if you happen to alter the code at some later point in time.
 3. 
 
-## Language Guidelines
+## 6. Language Guidelines
 
 Data types:A variable in ReactNative can contain any data. A variable can at one moment be a string and at another be a number
 
@@ -163,19 +163,19 @@ alert( fruits[2] ); // Plum
 ## Check internet connectivity
 When you are building your React Native app that needs to pull assets or data from a server, there is a possibility that some users may use the application in an offline environment i.e., without an internet connection. There is a chance that the app might crash. So, for a better user experience, we can handle this by checking for an internet connection and notifying the user if not.
 
-## Don’t Repeat Yourself
+## 7. Don’t Repeat Yourself
 
 One of the basic principles of software development is Don’t Repeat Yourself. We must not write the same piece of code twice. Whenever you write the same piece of code twice, you must try to refactor it into something reusable, even if not completely.
 
 You can create your own reusable components. For example, if your app contains multiple input fields, you can create a reusable <TextInput> component and use it across any screen within your app. Not only input fields, if your app contains multiple buttons, but you can also create a reusable <Button> component and use it anywhere within your app. Likewise, you can create any number of reusable components based on your app architecture.
 
-## Avoid Inline Stylings
+## 8. Avoid Inline Stylings
 
 Using inline stylings is much harder to maintain if a change is to be made there will be hundreds of places in the code you will have to search and change unless all styles are clearly defined with unique class names in a CSS stylesheet. For any property you want to change, you would have to simply modify the corresponding class name properties in the stylesheet, all the divs that use the class name will be affected.
 
 A well-defined stylesheet is extremely helpful while building complex React Native apps. Use React Native Stylesheet object to add styles specific to a certain component.
 
-## Exception Handling in React Native Apps
+## 9. Exception Handling in React Native Apps
 
 One of the worst user experiences is using a mobile application that crashes with errors that aren’t handled gracefully. So, exception handling plays an important role in making your app run smoothly.
 
@@ -193,7 +193,7 @@ try {
     // handle Error
 }
 
-## Perform the API Calls in componentDidMount()
+## 10. Perform the API Calls in componentDidMount()
 
 In order to always have the correct flow of data and rendering the components, you must put all your API calls within the componentDidMount() life cycle method.
 
@@ -205,52 +205,52 @@ useEffect(()=>{
 //Your Api Call
 },[])
 
-## Always Perform Both Local and Server Validations
+## 11. Always Perform Both Local and Server Validations
 
 Although, there are some validations or tests which only the server can validate, such as if the entered username or password exists in the database or if the entered email exists in the database. But it is a best practice that you always implement as much client validation as possible, such as entering the proper email format, empty field validation and also a minimum or maximum number of characters required. So, it is always preferable to perform both local and server validations.
 
-## Make Sure Your App is Responsive
+## 12. Make Sure Your App is Responsive
 
 You must always make sure that the app you are building is responsive, meaning it is consistent across different devices and platforms.
 
-##  Add Loading spinners While Fetching The Data Or Waiting For an API Response
+## 13. Add Loading spinners While Fetching The Data Or Waiting For an API Response
 
 This is something that is very easy to implement. Adding Loading Indicators makes your app look more responsive and professional to users.
 
-## Don’t put logs in the release build
+## 14. Don’t put logs in the release build
 
 Having many console.log statements can slow your app down, especially if you are using logging libraries such as redux-logger. Be sure to disable all logs (manually or with a script) when doing a release build.
 
-## DO use Safe Area View
+## 15. DO use Safe Area View
 
 If you want your app to look good on every iOS device you should use SafeAreaView which provides automatic padding when a view intersects with a safe area (notch, status bar, home indicator).
 
-## DO use Keyboard Avoiding View or KeyboardAwareScrollView
+## 16. DO use Keyboard Avoiding View or KeyboardAwareScrollView
 
 It is a component to solve the common problem of views that need to move out of the way of the virtual keyboard. It can automatically adjust either its height, position, or bottom padding based on the keyboard height.
 
-## DO remember the difference in pushing the screen and navigating the screen
+## 17. DO remember the difference in pushing the screen and navigating the screen
 
 Some actions require pushing a new screen to the application stack, while others require going to a screen you’ve loaded before. The push action adds a route on top of the stack and navigates forward to it. The push will always add on top, so a component can be mounted multiple times. This is important for the back action and for the data you want to present. For example, do you want to allow opening one profile from another? You need the push action, because you’re essentially loading the same component twice, with different data, and you want to be able to return to the previous profile with the back button. Navigating the screen, on the other hand, doesn’t have the stack of routes this type of routes is only meant to be used once and should not come up when we do back action for eg ( Login Screen )
 
-## Use a linter to make your code easier to review.
+## 18. Use a linter to make your code easier to review.
 
 Follow strict linting rules. This in turn helps you write clean, consistent code.
 
-##  On editing external libraries (Patches)
+## 19.  On editing external libraries (Patches)
 
 Sometimes you will want to change something in an external library. Do not edit it directly in the node_modules/ folder. That folder is supposed to be ignored by version control anyway, so if you change the code directly, your teammates will not see your changes. In addition, an npm update action will overwrite your modifications. The solution is to either fork the original repository and link your project to your own repository where you made the changes (and even make a PR to the original author if you want to help!), or if the library is very small (one file), you can copy/paste it as a component in your own project and then edit it locally.
 
-##  Lock Dependencies
+## 20. Lock Dependencies
 
 If your package.json file has a dependency that looks like
 "some-cool-library": "^0.4.2", you might want to remove the ^ character in order to lock the dependency on that specific version. This will ensure that you don’t import breaking changes from the new versions of the library into your project.
 
-## Review your code before creating a pull/merge request.
+## 21.  Review your code before creating a pull/merge request.
 
 Review your code at least once before creating a pull or merge request
 
-## Props Types for Reusable Components.
+## 22. Props Types for Reusable Components.
 
 Add Proptypes for each resuable component to make component more understandable and manageable.
 
